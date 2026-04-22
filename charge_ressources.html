@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 10mm;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .header h1 { margin: 0; font-size: 18pt; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        th {
+            background-color: #334155;
+            color: white;
+            padding: 12px;
+            font-size: 10pt;
+            text-transform: uppercase;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 10pt;
+        }
+        
+        .res-group {
+            text-align: left;
+            font-weight: bold;
+            background-color: #f8fafc;
+        }
+        
+        .load-indicator {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .load-fill {
+            height: 100%;
+        }
+        
+        .overload { color: #dc2626; font-weight: bold; }
+        .normal { color: #16a34a; }
+        
+        .legend {
+            margin-top: 20px;
+            font-size: 9pt;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Charge de Travail par Groupe de Ressources</h1>
+        <span>Semaine du 20 Avril 2026</span>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align:left;">Groupe de Ressources</th>
+                <th>Lundi 20</th>
+                <th>Mardi 21</th>
+                <th>Mercredi 22</th>
+                <th>Jeudi 23</th>
+                <th>Vendredi 24</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="res-group">PLIAGE (Bending)</td>
+                <td>
+                    <div class="normal">12h / 16h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 75%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="overload">19h / 16h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 100%; background: #dc2626;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">14h / 16h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 87%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">8h / 16h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 50%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">10h / 16h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 62%; background: #16a34a;"></div></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="res-group">LASER</td>
+                <td>
+                    <div class="normal">20h / 24h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 83%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">22h / 24h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 91%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="overload">26h / 24h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 100%; background: #dc2626;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">20h / 24h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 83%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">16h / 24h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 66%; background: #16a34a;"></div></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="res-group">SOUDURE (Welding)</td>
+                <td>
+                    <div class="normal">32h / 40h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 80%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">35h / 40h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 87%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">38h / 40h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 95%; background: #16a34a;"></div></div>
+                </td>
+                <td>
+                    <div class="overload">44h / 40h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 100%; background: #dc2626;"></div></div>
+                </td>
+                <td>
+                    <div class="normal">30h / 40h</div>
+                    <div class="load-indicator"><div class="load-fill" style="width: 75%; background: #16a34a;"></div></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="legend">
+        * Données extraites de la BAQ EST_BI_JOBOPER. Capacité calculée selon les calendriers de ressources Kinetic.
+    </div>
+</body>
+</html>
