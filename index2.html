@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIP Production - Tous les Groupes</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #64748b;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: #1e293b;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            background: #0f172a;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 10px solid var(--primary);
+        }
+
+        .dashboard-header h1 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .resource-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .job-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f8fafc;
+            font-size: 14px;
+        }
+
+        .job-id { font-weight: 600; color: #334155; }
+
+        .progress-container {
+            width: 120px;
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+
+        .progress-bar { height: 100%; border-radius: 4px; }
+
+        .status-tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .tag-active { background: #dcfce7; color: #166534; }
+        .tag-waiting { background: #f1f5f9; color: #64748b; }
+        .tag-late { background: #fee2e2; color: #991b1b; }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-header">
+    <h1>Suivi WIP par Groupe de Ressources</h1>
+    <div style="text-align: right">
+        <div style="font-size: 12px; opacity: 0.8;">Mise à jour : 22 Avril 2026</div>
+        <div style="font-weight: bold;">BAQ: EST_BI_JOBOPER</div>
+    </div>
+</div>
+
+<div class="grid-container">
+    <!-- LASER -->
+    <div class="resource-card">
+        <div class="resource-name"><span>DÉCOUPE LASER</span> <span style="font-size: 12px; color: var(--secondary);">3 Jobs</span></div>
+        <div class="job-row">
+            <span class="job-id">J2026-001</span>
+            <div style="display: flex; align-items: center;">
+                <span class="status-tag tag-active">85%</span>
+                <div class="progress-container"><div class="progress-bar" style="width: 85%; background: var(--success);"></div></div>
+            </div>
+        </div>
+        <div class="job-row">
+            <span class="job-id">J2026-005</span>
+            <div style="display: flex; align-items: center;">
+                <span class="status-tag tag-late">LATE</span>
+                <div class="progress-container"><div class="progress-bar" style="width: 15%; background: var(--danger);"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLIAGE -->
+    <div class="resource-card">
+        <div class="resource-name"><span>PLIAGE (BENDING)</span> <span style="font-size: 12px; color: var(--secondary);">2 Jobs</span></div>
+        <div class="job-row">
+            <span class="job-id">J2026-002</span>
+            <div style="display: flex; align-items: center;">
+                <span class="status-tag tag-active">40%</span>
+                <div class="progress-container"><div class="progress-bar" style="width: 40%; background: var(--warning);"></div></div>
+            </div>
+        </div>
+        <div class="job-row">
+            <span class="job-id">J2026-008</span>
+            <div style="display: flex; align-items: center;">
+                <span class="status-tag tag-waiting">READY</span>
+                <div class="progress-container"><div class="progress-bar" style="width: 0%; background: var(--secondary);"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOUDURE -->
+    <div class="resource-card">
+        <div class="resource-name"><span>SOUDURE (WELDING)</span> <span style="font-size: 12px; color: var(--secondary);">4 Jobs</span></div>
+        <div class="job-row"><span class="job-id">J2026-010</span><div style="display: flex; align-items: center;"><span class="status-tag tag-active">60%</span><div class="progress-container"><div class="progress-bar" style="width: 60%; background: var(--success);"></div></div></div></div>
+        <div class="job-row"><span class="job-id">J2026-012</span><div style="display: flex; align-items: center;"><span class="status-tag tag-active">25%</span><div class="progress-container"><div class="progress-bar" style="width: 25%; background: var(--warning);"></div></div></div></div>
+    </div>
+
+    <!-- USINAGE -->
+    <div class="resource-card">
+        <div class="resource-name"><span>USINAGE (MACHINING)</span> <span style="font-size: 12px; color: var(--secondary);">1 Job</span></div>
+        <div class="job-row"><span class="job-id">J2026-015</span><div style="display: flex; align-items: center;"><span class="status-tag tag-active">90%</span><div class="progress-container"><div class="progress-bar" style="width: 90%; background: var(--success);"></div></div></div></div>
+    </div>
+
+    <!-- PEINTURE -->
+    <div class="resource-card">
+        <div class="resource-name"><span>PEINTURE (PAINT)</span> <span style="font-size: 12px; color: var(--secondary);">0 Job</span></div>
+        <div style="color: var(--secondary); font-size: 13px; font-style: italic;">Aucune opération active</div>
+    </div>
+
+    <!-- ASSEMBLAGE -->
+    <div class="resource-card">
+        <div class="resource-name"><span>ASSEMBLAGE</span> <span style="font-size: 12px; color: var(--secondary);">1 Job</span></div>
+        <div class="job-row"><span class="job-id">J2026-020</span><div style="display: flex; align-items: center;"><span class="status-tag tag-waiting">READY</span><div class="progress-container"><div class="progress-bar" style="width: 0%; background: var(--secondary);"></div></div></div></div>
+    </div>
+</div>
+
+<footer>
+    Propulsé par Epicor Kinetic API | Dashboard Intégré Estampro
+</footer>
+
+</body>
+</html>
